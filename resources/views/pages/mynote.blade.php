@@ -105,7 +105,7 @@
         <h3>бюджет</h3>
     </a>
 
-    <a href="{{route('kalendar')}}" class="calend">
+    <a href="/" class="calend">
         <h3>календарь</h3>
         <ul>
             <li>08.08.2016</li>
