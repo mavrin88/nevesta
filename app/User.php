@@ -43,6 +43,19 @@ class User extends Authenticatable
     {
         $this->notify(new ResetPasswordNotification($token, $this->email));
     }
+
+    public function eventName()
+      {
+        return $this->hasOne('App\Event');
+      }
+
+    public function listInivation(){
+        return $this->hasOne('App\Inivation');
+    }  
+
+    public function inviteelist(){
+        return $this->hasMany('App\Inivation');
+    } 
 }
 
 

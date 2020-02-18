@@ -684,7 +684,13 @@ h1{	font-size:100%;}
 	-o-transition:all .0s .7s ease, opacity .35s ease .7s;
 	transition:all .0s .7s ease, opacity .35s ease .7s;
 }
+
 #submit_delete,
+#submit_addinivation,
+#submit_otpravka,
+#submit_edit,
+#submit_yes,
+#submit_no,
 #submit_send,
 #submit_cancel,
 #submit_delete_job,

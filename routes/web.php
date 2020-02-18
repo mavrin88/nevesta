@@ -5,8 +5,14 @@
 
 //Route::resource('/kalendar', 'CalendarController');
 
+Route::get('inivation/view/{id}', 'InivationController@user');
 
-// Route::get('/kalendar', function(){ return view('pages.kalendar'); });
+ Route::get('/inivation', 'InivationController@index');
+ Route::post('/inivation-send', 'InivationController@send')->name('inivation.send');
+ Route::post('/inivation-view', 'InivationController@view')->name('inivation.view');
+ Route::post('/inivation-yes', 'InivationController@viewYes')->name('inivation.yes');
+ Route::post('/inivation-edit', 'InivationController@edit')->name('inivation.edit');
+ Route::post('/inivation-editsave', 'InivationController@editSave')->name('inivation.editsave');
 
 // Route::post('/kalendar', 'CalendarController@send');
 // Route::get('/kalendar', 'CalendarController@index');
@@ -16,6 +22,7 @@
 Route::get('/kalendar', 'CalendarController@index')->name('kalendar.index');
 // Route::post('/kalendar', 'CalendarController@store')->name('kalendar.store');
 
+Route::post('/inivation-store', 'InivationController@store')->name('inivation.store');
 
 
 Route::post('/kalendar-send', 'CalendarController@send')->name('kalendar.send');
