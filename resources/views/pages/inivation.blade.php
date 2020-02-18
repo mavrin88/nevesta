@@ -28,9 +28,15 @@
                         <div class="spldv1">
                             <div class="spldv2">
                                 <h3><a href="#">Свидетели</a></h3>
-                                    <?php $id_event = \Illuminate\Support\Facades\Auth::user()->events()->first()['id'] ?>
-                                    <?php $guests = \App\Guest::getGuests($id_event, 'male', 'witness');?>
-                                    <?php $witnesses = \App\Guest::getGuests($id_event, 'female', 'witness');?>
+                                @if(!Auth::check())
+                                        <?php $id_event = 0 ?>
+                                        <?php $guests = \App\Guest::getGuests(1, 'male', 'witness');?>
+                                        <?php $witnesses = \App\Guest::getGuests(1, 'female', 'witness');?>
+                                    @else
+                                        <?php $id_event = \Illuminate\Support\Facades\Auth::user()->events()->first()['id']; ?>
+                                        <?php $guests = \App\Guest::getGuests($id_event, 'male', 'witness');?>
+                                        <?php $witnesses = \App\Guest::getGuests($id_event, 'female', 'witness');?>
+                                    @endif
                                     <p>
                                         @forelse($guests as $guest)
                                             <a href="/">{{$guest->name}}</a><span id="{{$guest->name}}" class="add_guest"><i class="fa fa-plus" aria-hidden="true"></i></span><br>
@@ -87,8 +93,12 @@
 
                 <div class="inivation">
                     <a href="/mynote" class="mynote">Список приглашений</a><br>
-
-                        @foreach (App\User::find(auth()->id())->inviteelist as $key => $value)
+                        @if(!Auth::check())
+                            <?php $login_inivation = App\User::find(1)->inviteelist ; ?>
+                        @else
+                            <?php $login_inivation = App\User::find(auth()->id())->inviteelist;?>
+                        @endif
+                        @foreach ($login_inivation as $key => $value)
                           <br><a class="view" href="javascript:void(0)" id="{{$value->id}}">{{$value->name}}</a>
                           <span id="{{$value->id}}"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>
                           @if ($value->status == 1)
@@ -148,6 +158,13 @@
 
 
     <div class="popup" id="view_inivation" style="width: 800px; text-align: center; display: none;"></div>
+
+    <div class="popup" id="register_modal" style="width: 400px; text-align: center; display: none;">
+        <h3 style="display: inline;">Для создания приглашения Вам необходимо войти или зарегистрироваться</h3>
+        <br>
+        <a href="{{route('login')}}">Войти</a>
+        <a href="{{route('wedding-create')}}">Зарегестрироваться</a>
+    </div>
 
 </body>
 
@@ -362,6 +379,11 @@ if (deletes.length == 1) {
 
 
     function send() {
+            if(!isAuth){
+                $("#register_modal").modal();
+                return false;
+            }
+
       var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
       var msg   = $('#formx').serialize();
         $.ajax({
@@ -384,6 +406,11 @@ if (deletes.length == 1) {
     }
 
     function edit() {
+            if(!isAuth){
+                $("#register_modal").modal();
+                return false;
+            }
+
       var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
       var msg   = $('#form_editsave').serialize();
         $.ajax({
