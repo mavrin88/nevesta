@@ -42,8 +42,12 @@ class InivationController extends Controller
 
     public function index()
     {
-        $event = User::find(Auth::id())->eventName;
-        return view('pages/inivation', compact('event'));
+    	if (Auth::id() !== null) {
+    		$event = User::find(Auth::id())->eventName;
+    	}else{
+    		$event = "Свадьба Иванова";
+    	}
+        	return view('pages/inivation', compact('event'));
     }
 
     public function user($id) {

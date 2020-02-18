@@ -113,7 +113,7 @@
 
             <div class="org">
                 <div class="input-group">
-                    <h3 class="title_ini">{{$event->name}}</h3>
+                    <h3 class="title_ini">@if(Auth::check()) {{$event->name}} @else <?php echo "Свадьба Ивановых"; ?> @endif</h3>
                     <div id="results"></div>
                     <div class="col-row">
                         <form method="POST" id="formx" action="javascript:void(null);" onsubmit="send()">
