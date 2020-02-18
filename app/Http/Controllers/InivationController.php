@@ -42,7 +42,7 @@ class InivationController extends Controller
 
     public function index()
     {
-        $event = User::find(12)->eventName;
+        $event = User::find(Auth::id())->eventName;
         return view('pages/inivation', compact('event'));
     }
 
