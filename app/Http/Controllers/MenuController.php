@@ -71,7 +71,12 @@ class MenuController extends Controller
     	$summ = 0;
 		$weight = 0;
 		$kolvo = 0;
-		$totalguest = Guest::getGuestsNumber(5);
+
+    if (Auth::user()) {
+        $totalguest = \App\Guest::getGuestsNumber(\Illuminate\Support\Facades\Auth::user()->events()->first()['id']);
+    }else{
+        $totalguest = 10;
+    }
 
 		foreach(User::find($auth_id)->group as $key => $value){
     		foreach(Menu_group::find($value->id)->menu as $key => $value){

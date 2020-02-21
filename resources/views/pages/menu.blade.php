@@ -19,7 +19,7 @@
     if (Auth::user()) {
         $getGuestsNumber = \App\Guest::getGuestsNumber(\Illuminate\Support\Facades\Auth::user()->events()->first()['id']);
     }else{
-        $getGuestsNumber = 0;
+        $getGuestsNumber = 2;
     }
 ?>
 
