@@ -55,6 +55,10 @@ class User extends Authenticatable
 
     public function inviteelist(){
         return $this->hasMany('App\Inivation');
+    }
+
+    public function group(){
+        return $this->hasMany('App\Menu_group');
     } 
 }
 

@@ -13,6 +13,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Menu_group;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
@@ -92,9 +93,22 @@ class AuthController extends Controller{
 
         Auth::login($user);
 
+    // При успешной регистрации добавляем дефолтные записи в базу, криво но работает
+
+  $arr = array('Холодные закуски', 'Фуршет', 'Салаты', 'Горячие закуски', 'Горячие основные блюда', 'Гарниры', 'Десерты', 'Безалкогольные напитки', 'Алкогольные напитки');
+
+    foreach($arr as $value)
+  {
+        Menu_group::create([
+            'name' => $value,
+            'user_id' => Auth::id(),
+        ]);
+  } 
+
         event(new createEventFromSessionEvent($user->id));
 
         return $this->getRegisterPage('success');
+
     }
 
     /* All login handle */

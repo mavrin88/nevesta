@@ -3,7 +3,16 @@
 
 // My routes
 
-//Route::resource('/kalendar', 'CalendarController');
+Route::get('/menu', 'MenuController@index')->name('menu.index');
+Route::post('/menu-delete', 'MenuController@deleteMenu')->name('menu.delete');
+Route::post('/menu-store', 'MenuController@store')->name('menu.store');
+Route::post('/menu-info', 'MenuController@totalInfo')->name('menu.totalinfo');
+Route::post('/menu-list', 'MenuController@menuList')->name('menu.menulist');
+
+Route::post('/menu-getmenu', 'MenuController@getMenu')->name('menu.getmenu');
+
+Route::post('/menu-deletegroup', 'MenuController@deleteGroup')->name('menu.deletegroup');
+Route::post('/menu-storegroup', 'MenuController@addGroup')->name('menu.addgroup');
 
 Route::get('inivation/view/{id}', 'InivationController@user');
 
