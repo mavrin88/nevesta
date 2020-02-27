@@ -53,12 +53,36 @@ Route::group(['middleware' => 'eventOnly'], function(){
     /* Dynamic and pages */
     Route::get('/joblist', 'JobsController@index')->name('joblist');
     Route::post('/joblist', 'JobsController@createJobCategory');
+
+    Route::get('/notes', 'NotesController@index')->name('notes');
+    Route::post('/notes', 'NotesController@createNoteCategory');
     Route::get('/guests', 'GuestsController@index')->name('visitors_list');
 
 
     /* Ajax methods */
 
     Route::group(['prefix' => 'ajax'], function() {
+
+        //NOTES
+        Route::post('/swapNotes', 'NotesController@swapNotes');
+
+        Route::post('/getNoteData', 'NotesController@getNote');
+        Route::post('/saveNoteData', 'NotesController@saveNote');
+
+        Route::post('/getNewNoteData', 'NotesController@getNewNoteData');
+        Route::post('/createNewNote', 'NotesController@createNewNote');
+
+        Route::post('/deleteNote', 'NotesController@deleteNote');
+        Route::post('/deleteNoteOnly', 'NotesController@deleteNoteOnly');
+        Route::post('/sendCalendarOnly', 'NotesController@sendCalendarOnly');
+        Route::post('/setNoteDone', 'NotesController@setNoteDone');
+        Route::post('/setNoteNotDone', 'NotesController@setNoteNotDone');
+
+        Route::post('/getNoteCards', 'NotesController@getNoteCards');
+
+        Route::post('/deleteNoteCategory', 'NotesController@deleteNoteCategory');
+
+
 
         //JOBS
         Route::post('/swapJobs', 'JobsController@swapJobs');

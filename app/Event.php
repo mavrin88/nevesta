@@ -36,6 +36,11 @@ class Event extends Model{
         return $this->hasMany('App\Job_category', 'event_id', 'id');
     }
 
+    public function notes_categories()
+    {
+        return $this->hasMany('App\Notes_category', 'event_id', 'id');
+    }
+
     /* Events */
 
     protected $events = [
