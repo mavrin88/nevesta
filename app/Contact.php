@@ -16,7 +16,7 @@ class Contact extends Model
     public static function getContact($event_id)
     {
         $contact = Contact::where(['event_id' => $event_id]);
-        return $contact->first()->get();
+        return $contact->get();
     }
 
     public static function getGuestContact($event_id)
