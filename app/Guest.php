@@ -18,7 +18,9 @@ class Guest extends Model
         'contacts_instagram',
         'contacts_facebook',
         'contacts_vk',
-        'contacts_ok'
+        'contacts_ok',
+        'contacts_viber',
+        'contacts_telegram'
     ];
 
     public $timestamps = false;

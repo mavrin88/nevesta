@@ -285,6 +285,22 @@
                         add
                     </a>
                 </div>
+                <div class="form-row viber">
+                    <input type="text" class="text" placeholder="Viber">
+                    <span><img src="images/viber.png" alt="image description"></span>
+                    <a href="#" class="addto tooltip-holder">
+                        <span class="tooltip">Добавить</span>
+                        add
+                    </a>
+                </div>
+                <div class="form-row telegram">
+                    <input type="text" class="text" placeholder="Telegram">
+                    <span><img src="images/telegram.png" alt="image description"></span>
+                    <a href="#" class="addto tooltip-holder">
+                        <span class="tooltip">Добавить</span>
+                        add
+                    </a>
+                </div>
                 <div class="form-row insta">
                     <input type="text" class="text" placeholder="instagram">
                     <span><img src="images/ico6.png" alt="image description"></span>
@@ -301,7 +317,7 @@
                         add
                     </a>
                 </div>
-                <div class="form-row vkontakte">
+<!--                 <div class="form-row vkontakte">
                     <input type="text" class="text" placeholder="vkontakte">
                     <span><img src="images/ico8.png" alt="image description"></span>
                     <a href="#" class="addto tooltip-holder">
@@ -316,7 +332,7 @@
                         <span class="tooltip">Добавить</span>
                         add
                     </a>
-                </div>
+                </div> -->
                 <a href="#" rel="modal:close" class="btn btn-pink">добавить</a>
             </fieldset>
         </form>

@@ -287,6 +287,7 @@ class ComposerStaticInit1a819ea4ecec63a36ca9ad967e67c281
     );
 
     public static $classMap = array (
+        'AddContactColumsToGuests' => __DIR__ . '/../..' . '/database/migrations/2020_02_27_115339_add_contact_colums_to_guests.php',
         'AddContactsColumnsToGuests' => __DIR__ . '/../..' . '/database/migrations/2017_06_05_140345_add_contacts_columns_to_guests.php',
         'AddPrirorityColumnToJobs' => __DIR__ . '/../..' . '/database/migrations/2017_05_07_102139_add_prirority_column_to_jobs.php',
         'App\\Budget' => __DIR__ . '/../..' . '/app/Budget.php',
@@ -294,6 +295,7 @@ class ComposerStaticInit1a819ea4ecec63a36ca9ad967e67c281
         'App\\Calendar_Event' => __DIR__ . '/../..' . '/app/Calendar_Event.php',
         'App\\City' => __DIR__ . '/../..' . '/app/City.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
         'App\\Default_Job_Categories' => __DIR__ . '/../..' . '/app/Default_Job_Categories.php',
         'App\\Default_Jobs' => __DIR__ . '/../..' . '/app/Default_Jobs.php',
         'App\\Event_type' => __DIR__ . '/../..' . '/app/Event_type.php',
@@ -344,6 +346,7 @@ class ComposerStaticInit1a819ea4ecec63a36ca9ad967e67c281
         'CreateCalendarEventTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_07_101733_create_calendar_event_table.php',
         'CreateCalendarsTable' => __DIR__ . '/../..' . '/database/migrations/2020_02_04_083612_create_calendars_table.php',
         'CreateCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_26_155351_create_cities_table.php',
+        'CreateContactsTable' => __DIR__ . '/../..' . '/database/migrations/2020_03_03_141059_create_contacts_table.php',
         'CreateDefaultJobCategories' => __DIR__ . '/../..' . '/database/migrations/2017_05_01_080407_create_default_job_categories.php',
         'CreateDefaultJobsTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_01_084757_create_default_jobs_table.php',
         'CreateEventTypesTable' => __DIR__ . '/../..' . '/database/migrations/2017_04_26_155503_create_event_types_table.php',

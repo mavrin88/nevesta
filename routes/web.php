@@ -57,6 +57,7 @@ Route::group(['middleware' => 'eventOnly'], function(){
     Route::get('/notes', 'NotesController@index')->name('notes');
     Route::post('/notes', 'NotesController@createNoteCategory');
     Route::get('/guests', 'GuestsController@index')->name('visitors_list');
+    Route::get('/contacts', 'ContactController@index')->name('contact_list');
 
 
     /* Ajax methods */
@@ -108,9 +109,14 @@ Route::group(['middleware' => 'eventOnly'], function(){
         Route::post('/setGuest', 'GuestsController@setGuest');
 
         //GUESTS CONTACTS
-
         Route::get('/getGuestContacts', 'GuestsController@getGuestContacts');
         Route::post('/updateGuestContacts', 'GuestsController@updateGuestContacts');
+
+        //CONTACTS
+        Route::post('/setContact', 'ContactController@setContact');
+        Route::get('/getContacts', 'ContactController@getContacts');
+        Route::post('/updateContacts', 'ContactController@updateContacts');
+
     });
 
     

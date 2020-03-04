@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddContactColumsToGuests' => $baseDir . '/database/migrations/2020_02_27_115339_add_contact_colums_to_guests.php',
     'AddContactsColumnsToGuests' => $baseDir . '/database/migrations/2017_06_05_140345_add_contacts_columns_to_guests.php',
     'AddPrirorityColumnToJobs' => $baseDir . '/database/migrations/2017_05_07_102139_add_prirority_column_to_jobs.php',
     'App\\Budget' => $baseDir . '/app/Budget.php',
@@ -13,6 +14,7 @@ return array(
     'App\\Calendar_Event' => $baseDir . '/app/Calendar_Event.php',
     'App\\City' => $baseDir . '/app/City.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
+    'App\\Contact' => $baseDir . '/app/Contact.php',
     'App\\Default_Job_Categories' => $baseDir . '/app/Default_Job_Categories.php',
     'App\\Default_Jobs' => $baseDir . '/app/Default_Jobs.php',
     'App\\Event_type' => $baseDir . '/app/Event_type.php',
@@ -63,6 +65,7 @@ return array(
     'CreateCalendarEventTable' => $baseDir . '/database/migrations/2017_05_07_101733_create_calendar_event_table.php',
     'CreateCalendarsTable' => $baseDir . '/database/migrations/2020_02_04_083612_create_calendars_table.php',
     'CreateCitiesTable' => $baseDir . '/database/migrations/2017_04_26_155351_create_cities_table.php',
+    'CreateContactsTable' => $baseDir . '/database/migrations/2020_03_03_141059_create_contacts_table.php',
     'CreateDefaultJobCategories' => $baseDir . '/database/migrations/2017_05_01_080407_create_default_job_categories.php',
     'CreateDefaultJobsTable' => $baseDir . '/database/migrations/2017_05_01_084757_create_default_jobs_table.php',
     'CreateEventTypesTable' => $baseDir . '/database/migrations/2017_04_26_155503_create_event_types_table.php',

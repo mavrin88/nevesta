@@ -33,7 +33,7 @@ $(document).ready(function(){
 
             $.ajax({
                 'type': 'POST',
-                'url': '/ajax/setGuest',
+                'url': '/ajax/setContact',
                 'data': data,
                 'success': function(data){
                     console.log(data);
@@ -141,7 +141,7 @@ $(document).ready(function(){
 
             $.ajax({
                 'type': 'GET',
-                'url': '/ajax/getGuestContacts',
+                'url': '/ajax/getContacts',
                 'data': data,
                 'success': function(data){
                     console.log(data);
@@ -161,7 +161,7 @@ $(document).ready(function(){
             //Make the query
             $.ajax({
                 'type': 'POST',
-                'url': '/ajax/updateGuestContacts',
+                'url': '/ajax/updateContacts',
                 'data': data,
                 'success':
                     function(data){
