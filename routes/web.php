@@ -14,6 +14,14 @@ Route::post('/menu-getmenu', 'MenuController@getMenu')->name('menu.getmenu');
 Route::post('/menu-deletegroup', 'MenuController@deleteGroup')->name('menu.deletegroup');
 Route::post('/menu-storegroup', 'MenuController@addGroup')->name('menu.addgroup');
 
+
+
+Route::post('/day-delete', 'DayController@deleteDay')->name('day.delete');
+Route::post('/day-store', 'DayController@store')->name('day.store');
+Route::post('/day-list', 'DayController@menuDay')->name('day.menulist');
+Route::post('/day-getmenu', 'DayController@getDay')->name('day.getmenu');
+
+
 Route::get('inivation/view/{id}', 'InivationController@user');
 
  Route::get('/inivation', 'InivationController@index');
@@ -58,6 +66,7 @@ Route::group(['middleware' => 'eventOnly'], function(){
     Route::post('/notes', 'NotesController@createNoteCategory');
     Route::get('/guests', 'GuestsController@index')->name('visitors_list');
     Route::get('/contacts', 'ContactController@index')->name('contact_list');
+    Route::get('/day', 'DayController@index')->name('day');
 
 
     /* Ajax methods */
