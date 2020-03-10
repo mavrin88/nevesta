@@ -3,6 +3,24 @@
 
 // My routes
 
+Route::get('/catalog', 'CatalogController@ProdactionIndex')->name('prodaction.index');
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    //Route::delete('permissions/destroy', 'CatalogController@massDestroy')->name('permissions.massDestroy');
+    //Route::resource('/', 'CatalogController');
+    Route::get('/', 'CatalogController@index')->name('index');
+    Route::post('/', 'CatalogController@store')->name('store');
+    Route::post('/addArtist', 'CatalogController@addArtist')->name('addArtist');
+    Route::post('/getGroup', 'CatalogController@getGroup')->name('getGroup');
+    Route::get('artist/{artist}/edit', 'CatalogController@edit')->name('artist.edit');
+    Route::post('/editid', 'CatalogController@editid')->name('editid');
+    Route::post('/deleteid', 'CatalogController@deleteid')->name('deleteid');
+
+    // Route::get('/admin', function () { return view('admin.catalog'); })->name('ad');
+});
+
+
+
 Route::get('/menu', 'MenuController@index')->name('menu.index');
 Route::post('/menu-delete', 'MenuController@deleteMenu')->name('menu.delete');
 Route::post('/menu-store', 'MenuController@store')->name('menu.store');

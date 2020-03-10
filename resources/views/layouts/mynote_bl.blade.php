@@ -100,6 +100,9 @@
                 <a href="#">добавить новую заметку</a><br>
             </p>
 
+            <h3><a href="{{route('admin.index')}}" style="color: red;">Управление каталогом</a></h3>
+
+
         </div>
     </div>
 

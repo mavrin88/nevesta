@@ -10,7 +10,7 @@
 <div class="Mmenu">
 <a class="bt{{  $selected == 'home' ? '_act' : '' }}" href="/" >главная</a>
 <a class="bt{{  $selected == 'preparation' ? '_act' : '' }}" href="/podgotovka_prazdnik" >подготовка праздника</a>
-<a class="bt{{  $selected == 'catalog' ? '_act' : '' }}" href="/catalogё" >каталог</a>
+<a class="bt{{  $selected == 'catalog' ? '_act' : '' }}" href="/catalog" >каталог</a>
 <a class="bt{{  $selected == 'newlyweds' ? '_act' : '' }}" href="/molodojeny.php" >молодожёны</a>
 <a class="bt{{  $selected == 'reports' ? '_act' : '' }}" href="/otchety.php" >отчёты</a>
 <a class="bt{{  $selected == 'news' ? '_act' : '' }}" href="/news.php" >новости</a>
