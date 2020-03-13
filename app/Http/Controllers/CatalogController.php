@@ -47,15 +47,33 @@ class CatalogController extends Controller
     }
 
 
+
     public function addArtist(Request $request)
     {
         $data = $request->all();
         if ($data['group'] == 1) {
-                $add = Catalog_group::create($data);
-                    return response('Группа добавлена');
+                $path = $data['photo']->store('public/avatars');
+                    Catalog_group::create([
+                        'name' => $data['name'],
+                        'description' => $data['description'],
+                        'photo' => $path,
+                    ]);
+                    return redirect('admin');
         }else{
-                $add = Catalog::create($data);
-                    return response('Артист добавлен'); 
+                $path = $data['photo']->store('public/avatars');
+                    Catalog::create([
+                        'catalog_groups_id' => $data['catalog_groups_id'],
+                        'name' => $data['name'],
+                        'price_from' => $data['price_from'],
+                        'price_up_to' => $data['price_up_to'],
+                        'description' => $data['description'],
+                        'youtube' => $data['youtube'],
+                        'photo' => $path,
+                        'tel' => $data['tel'],
+                        'tel_work' => $data['tel_work'],
+                        'position' => $data['position'],
+                    ]);
+                        return redirect('admin'); 
         }
 
     }
@@ -99,16 +117,17 @@ class CatalogController extends Controller
     public function editid(Request $request)
     {
         $data = $request->all();
-
+        $path = $data['photo']->store('public/avatars');
         $artist = Catalog::find($data['id']);
         $artist->name = $data['name'];
         $artist->price_from = $data['price_from'];
         $artist->price_up_to = $data['price_up_to'];
         $artist->tel = $data['tel'];
         $artist->position = $data['position'];
+        $artist->photo = $path;
         $artist->save();
 
-        return redirect('/');
+        return redirect('admin');
 
             
     }

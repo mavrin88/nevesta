@@ -84,7 +84,13 @@
   @foreach($catalogs as $catalog)
   <div class="col-md-4 mb-4">
       <div class="card">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"></rect><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Изображение</text></svg>
+
+      @if ($catalog->photo)
+          <img src="{{ asset('storage'.str_replace('public' , '', $catalog->photo)) }}" class="bd-placeholder-img card-img-top" width="100%" height="180">
+      @else
+          <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"></rect><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Изображение</text></svg>
+      @endif
+
         <div class="card-body">
           <h5 class="card-title">{{ $catalog->name }}</h5>
           <p class="card-text">{{ $catalog->description }}</p>
@@ -259,7 +265,8 @@
         </button>
       </div>
       <div class="modal-body">
-          <form method="POST" id="store_group" action="javascript:void(null);" onsubmit="add_group()">
+          <form method="POST" id="store_group" action="{{route('admin.addArtist')}}" enctype="multipart/form-data" onsubmit="add_group()">
+            {{ csrf_field() }}
             <div class="form-group">
               <label for="name">Имя группы</label>
               <input type="text" class="form-control" name="name" aria-describedby="emailHelp" required>
@@ -267,6 +274,10 @@
             <div class="form-group">
               <label for="description">Описание</label>
               <textarea class="form-control" name="description" rows="3" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="photo">Фото группы</label>
+                <input id="photo" type="file" name="photo">
             </div>
             <input type="hidden" name="group" value="1">
       </div>
@@ -294,7 +305,8 @@
         </button>
       </div>
       <div class="modal-body">
-        <form method="POST" id="store_artist" action="javascript:void(null);" onsubmit="add_artist()">
+        <form method="POST" id="store_group" action="{{route('admin.addArtist')}}" enctype="multipart/form-data" onsubmit="add_artist()">
+            {{ csrf_field() }}
         <div class="form-group">
           <label for="name">Название</label>
           <input name="name" type="text" class="form-control" required>
@@ -419,7 +431,7 @@ $(document).on('click', '.list-group-item', function() {
          getGroup();
        },
        error:  function(xhr, str){
-        alert('Ошибка');
+        
       }
     });
   }
@@ -437,7 +449,7 @@ $(document).on('click', '.list-group-item', function() {
          $('#store_artist')[0].reset();
        },
        error:  function(xhr, str){
-        alert('Ошибка');
+        
       }
     });
   }

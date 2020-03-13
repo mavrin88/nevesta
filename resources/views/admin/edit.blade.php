@@ -72,7 +72,10 @@
 <div class="row">
 
   <div class="col-md-9 order-md-1 main_catalog">
-    <?php //dump($artist);?>
+
+      <div class="text-center">
+              <img src="{{ asset('storage'.str_replace('public' , '', $artist->photo)) }}" class="bd-placeholder-img card-img-top">
+      </div>
 
       <h4><b>Название: </b>{{ $artist->name }}</h4>
       <p><b>Описание: </b>{{ $artist->description }}</p>
@@ -86,7 +89,9 @@
       <hr>
 
 
-            <form class="{{ $artist->id }}" method="POST" id="editid" action="javascript:void(null);" onsubmit="edit()">
+            <form class="{{ $artist->id }}" method="POST" id="editid" action="{{route('admin.editid')}}" enctype="multipart/form-data"onsubmit="edit()">
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $artist->id }}">
                     <div class="form-group">
                         <label for="title">Название</label>
                         <input class="form-control"  name="name" type="text" value="{{$artist->name}}" required>
@@ -200,7 +205,7 @@ $(document).on('click', '.delete-artist', function() {
         window.location.replace("/admin");
        },
        error:  function(xhr, str){
-        alert('Ошибка');
+
       }
     });
   }
